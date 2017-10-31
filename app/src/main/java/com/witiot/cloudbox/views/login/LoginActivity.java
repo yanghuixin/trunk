@@ -80,6 +80,10 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void getNewVersion() {
+            //NewVersionReques自己建的实体类（创建一个对象只是方便转换成最终上传的 json 字符串）
+            //所有paramlist.set方法都是传给后台的参数
+            //OKHttp是把map转 json，这个是改成把自建的对象转json
+            //get请求是拼接，post请求就是把一个完整的 json post到服务器
         // paramlist
         NewVersionRequest.DatBean.Paramlist paramlist = new NewVersionRequest.DatBean.Paramlist();
         paramlist.setVersionNumber(CommonUtils.getAppVersionName(this).replace(".",""));
@@ -91,14 +95,14 @@ public class LoginActivity extends BaseActivity {
         NewVersionRequest rqs = new NewVersionRequest();
         rqs.setCmd("get");
         rqs.setSrc("3");
-        rqs.setTok("");
+        rqs.setTok("");//Tok传入空或从缓存share里取tok对应的值 rqs.setTok((String) SPUtils.get(this, "tok", ""));
         rqs.setVer("1");
         rqs.setDat(datBean);
         final Gson gson = new Gson();
         XRequest xRequest = new XRequest();
         xRequest.sendPostRequest(this, gson.toJson(rqs), "version/updateVersion", new XRequestCallback() {
             @Override
-            public void callback(boolean isSucceed, String result) {
+            public void callback(boolean isSucceed, String result) {// 如果成功，result是后台返回的json数据，解析出来就好
                 Type typeToken = new TypeToken<UpdateVersionRes>() {}.getType();
                 UpdateVersionRes res = gson.fromJson(result, typeToken);
                 if (res.getRet().equals("10000")) {

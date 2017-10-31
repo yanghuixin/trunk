@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/bg_edittext_normal"
+    android:id="@+id/flow_ll">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="100MB"
+            android:textSize="24sp"
+            android:textColor="@color/orange_text"
+            android:layout_marginLeft="40dp"
+            android:textAlignment="textEnd"
+            android:id="@+id/flow_specifi"/>
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textSize="24sp"
+            android:textColor="@color/red"
+            android:layout_marginLeft="80dp"
+            android:textAlignment="textEnd"
+            android:id="@+id/flow_price"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="元"
+            android:textSize="24sp"
+            android:textColor="@color/red" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="（不打折）"
+            android:textSize="16sp"
+            android:textColor="@color/black_text"
+            android:id="@+id/flow_discount"/>
+</LinearLayout>

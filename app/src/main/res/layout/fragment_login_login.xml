@@ -1,0 +1,117 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.witiot.cloudbox.views.login.LoginFragment"
+    android:layout_marginLeft="60dp"
+    android:layout_marginRight="60dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <com.witiot.cloudbox.widget.ClearEditText
+        android:id="@+id/login_phone_et"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/bg_edittext_focused"
+        android:drawableLeft="@mipmap/ic_phone"
+        android:drawablePadding="25dp"
+        android:gravity="center_vertical"
+        android:hint="请输入您的手机号，11位数字"
+        android:inputType="number"
+        android:maxLength="11"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textColorHint="@color/disable" />
+
+    <com.witiot.cloudbox.widget.ClearEditText
+        android:id="@+id/login_pw_et"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_edittext_focused"
+        android:drawableLeft="@mipmap/ic_pw"
+        android:drawablePadding="25dp"
+        android:gravity="center_vertical"
+        android:hint="请输入您的密码，6位数字"
+        android:inputType="numberPassword"
+        android:maxLength="6"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textColorHint="@color/disable" />
+
+    <TextView
+        android:id="@+id/forget_pw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="right"
+        android:text="忘记密码？"
+        android:textColor="@color/blue_text" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_login_bg" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+        <View
+            android:layout_width="80dp"
+            android:layout_height="1dp"
+            android:background="@color/bg_grey"
+            ></View>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="其他登录方式"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/grey_cccccc"/>
+        <View
+            android:layout_width="80dp"
+            android:layout_height="1dp"
+            android:background="@color/bg_grey" >
+        </View>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@mipmap/wechat"
+            android:layout_marginTop="30dp"
+            android:drawablePadding="8dp"
+            android:textColor="@color/grey_cccccc"
+            android:text="微信登录"
+            android:id="@+id/wechat_login"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@mipmap/tool"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="120dp"
+            android:drawablePadding="8dp"
+            android:textColor="@color/grey_cccccc"
+            android:text="设备维护"
+            android:id="@+id/device_login"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+
+</LinearLayout>

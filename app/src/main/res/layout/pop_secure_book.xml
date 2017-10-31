@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_pay_ewm"
+    android:layout_marginTop="50dp"
+    android:layout_marginBottom="50dp">
+         <WebView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="40dp"
+             android:layout_marginTop="40dp"
+             android:layout_marginRight="40dp"
+             android:layout_weight="1"
+             android:id="@+id/pop_webview"
+             />
+    <TextView
+        android:id="@+id/ok_bt"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_margin="40dp"
+        android:text="知道了"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:drawablePadding="10dp"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/blue_bt_normal"
+        />
+</LinearLayout>

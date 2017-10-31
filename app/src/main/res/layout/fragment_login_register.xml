@@ -1,0 +1,135 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="60dp"
+    android:layout_marginRight="60dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <com.witiot.cloudbox.widget.ClearEditText
+        android:id="@+id/register_phone_et"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/bg_edittext_focused"
+        android:drawableLeft="@mipmap/ic_phone"
+        android:drawablePadding="25dp"
+        android:gravity="center_vertical"
+        android:hint="请输入您的手机号，11位数字"
+        android:inputType="number"
+        android:maxLength="11"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:singleLine="false"
+        android:textColorHint="@color/disable" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <com.witiot.cloudbox.widget.ClearEditText
+            android:id="@+id/register_code_et"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_edittext_focused"
+            android:drawableLeft="@mipmap/ic_code"
+            android:drawablePadding="25dp"
+            android:gravity="center_vertical"
+            android:hint="请输入验证码"
+            android:inputType="number"
+            android:maxLength="4"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textColorHint="@color/disable" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="获取验证码"
+            android:textColor="@color/blue_text"
+            android:gravity="center"
+            android:id="@+id/get_code"
+            android:background="@drawable/bg_get_code"/>
+
+
+    </LinearLayout>
+
+    <com.witiot.cloudbox.widget.ClearEditText
+        android:id="@+id/register_pw_et"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_edittext_focused"
+        android:drawableLeft="@mipmap/ic_pw"
+        android:drawablePadding="25dp"
+        android:gravity="center_vertical"
+        android:hint="请输入您的密码，6位数字"
+        android:inputType="numberPassword"
+        android:maxLength="6"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textColorHint="@color/disable" />
+
+    <com.witiot.cloudbox.widget.ClearEditText
+        android:id="@+id/register_comfirm_pw_et"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_edittext_focused"
+        android:drawableLeft="@mipmap/ic_pw"
+        android:drawablePadding="25dp"
+        android:gravity="center_vertical"
+        android:hint="请确认您的密码，6位数字"
+        android:inputType="numberPassword"
+        android:maxLength="6"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textColorHint="@color/disable" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/protocol_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="接受"
+            android:textColor="@color/grey_text" />
+
+        <TextView
+            android:id="@+id/protocol_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《用户协议》"
+            android:textColor="@color/blue_text" />
+
+        <TextView
+            android:id="@+id/perfect_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="新用户大礼包！"
+            android:textColor="@color/colorAccent" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_register_bg" />
+
+</LinearLayout>

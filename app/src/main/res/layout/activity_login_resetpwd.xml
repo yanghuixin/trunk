@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.witiot.cloudbox.views.login.ResetpwdActivity"
+    android:orientation="horizontal"
+    android:fitsSystemWindows="true"
+    android:background="@mipmap/login_bg"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/clear"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="35dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:padding="15dp"
+                android:paddingBottom="0dp"
+                android:text="重置密码"
+                android:textAlignment="center"
+                android:textColor="@color/blue_text"
+                android:textSize="18sp"
+                tools:text="重置密码" />
+
+
+        </LinearLayout>
+
+        <com.witiot.cloudbox.widget.ClearEditText
+            android:id="@+id/register_phone_et"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_edittext_focused"
+            android:drawableLeft="@mipmap/ic_phone"
+            android:drawablePadding="25dp"
+            android:gravity="center_vertical"
+            android:hint="请输入您的手机号，11位数字"
+            android:inputType="number"
+            android:maxLength="11"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textColorHint="@color/disable" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.witiot.cloudbox.widget.ClearEditText
+                android:id="@+id/register_code_et"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_edittext_focused"
+                android:drawableLeft="@mipmap/ic_code"
+                android:drawablePadding="25dp"
+                android:gravity="center_vertical"
+                android:hint="请输入验证码"
+                android:inputType="number"
+                android:maxLength="4"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textColorHint="@color/disable" />
+
+            <TextView
+                android:id="@+id/get_code"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_get_code"
+                android:gravity="center"
+                android:text="获取验证码"
+                android:textColor="@color/blue_text" />
+
+
+        </LinearLayout>
+
+        <com.witiot.cloudbox.widget.ClearEditText
+            android:id="@+id/register_pw_et"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_edittext_focused"
+            android:drawableLeft="@mipmap/ic_pw"
+            android:drawablePadding="25dp"
+            android:gravity="center_vertical"
+            android:hint="请输入您的密码，6位数字"
+            android:inputType="numberPassword"
+            android:maxLength="6"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textColorHint="@color/disable" />
+
+        <com.witiot.cloudbox.widget.ClearEditText
+            android:id="@+id/register_comfirm_pw_et"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_edittext_focused"
+            android:drawableLeft="@mipmap/ic_pw"
+            android:drawablePadding="25dp"
+            android:gravity="center_vertical"
+            android:hint="请确认您的密码，6位数字"
+            android:inputType="numberPassword"
+            android:maxLength="6"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textColorHint="@color/disable" />
+
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_resetpwd_bg"
+            android:text="重置密码"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:text="重置密码" />
+
+        <TextView
+            android:id="@+id/back_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:elevation="0dp"
+            android:gravity="center"
+            android:text="返回登录"
+            android:textAlignment="center"
+            android:textColor="@color/blue_text"
+            android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

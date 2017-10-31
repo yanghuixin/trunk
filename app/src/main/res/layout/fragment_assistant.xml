@@ -1,0 +1,78 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.witiot.cloudbox.views.login.LoginFragment"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:fitsSystemWindows="true"
+    android:background="@color/blue_title">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@color/blue_title"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:drawableLeft="@mipmap/ic_kangfu"
+            android:drawablePadding="12dp"
+            android:text="康复助手"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:drawablePadding="12dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="关闭"
+                android:gravity="center_vertical"
+                android:paddingTop="10dp"
+                android:id="@+id/close"
+                android:paddingBottom="10dp"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:paddingRight="20dp"
+                android:drawablePadding="12dp"
+                android:paddingLeft="20dp"
+                android:text="返回"
+                android:gravity="center_vertical"
+                android:paddingTop="10dp"
+                android:id="@+id/back"
+                android:paddingBottom="10dp"
+                android:visibility="gone"
+                />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/webview"></WebView>
+
+
+
+</LinearLayout>

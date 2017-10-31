@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:background="@color/blue_title"
+    tools:context="com.witiot.cloudbox.views.internet.FlowRecordActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_title">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="20dp"
+            android:drawableLeft="@mipmap/used_rili"
+            android:drawablePadding="12dp"
+            android:text="使用日历"
+            android:gravity="center_vertical"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            />
+
+        <TextView
+            android:id="@+id/close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+
+            android:layout_marginTop="10dp"
+            android:background="@drawable/member_bt"
+            android:drawableLeft="?android:attr/homeAsUpIndicator"
+            android:drawablePadding="0dp"
+            android:elevation="2dp"
+
+            android:gravity="center_vertical"
+            android:paddingBottom="3dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="3dp"
+            android:text="返回"
+            android:textColor="@color/gray" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/bg_grey">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:background="@drawable/bg_edittext_normal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/date_pre"
+                android:layout_marginTop="12dp"
+                android:id="@+id/pre_date"
+                android:layout_marginBottom="12dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/orange_text"
+                android:text="2018-07-08"
+                android:id="@+id/date_tv"
+                android:textSize="24sp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginRight="120dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/date_next"
+                android:id="@+id/next_date"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+
+                android:background="@color/white"
+                android:layout_margin="20dp"
+                android:layout_weight="0.5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="云头柜使用次数"
+                        android:textSize="16sp"
+                        android:textColor="@color/black_text"
+                        android:padding="12dp"
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/tv_dv"
+                        />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_cccccc"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"></View>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_edittext_normal"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="密码锁"
+                        android:drawableLeft="@mipmap/dv_mm"
+                        android:gravity="center_vertical"
+                        android:drawablePadding="8dp"
+                        android:textColor="@color/blue_text"
+                        android:textSize="18sp"
+                        android:layout_centerVertical="true"
+                        android:layout_weight="0.8"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="不限次"
+                        android:id="@+id/pw_tip1"
+                        android:textSize="16sp"
+                        android:layout_weight="1"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="已用4次"
+                        android:id="@+id/pw_tip2"
+                        android:textSize="16sp"
+                        android:layout_weight="1"
+                        android:textColor="@color/red"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:layout_weight="1"
+                        />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/bg_grey"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"></View>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_edittext_normal"
+                    android:padding="10dp"
+                    android:layout_marginTop="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="空气净化器"
+                        android:drawableLeft="@mipmap/dv_kq"
+                        android:gravity="center_vertical"
+                        android:drawablePadding="8dp"
+                        android:textColor="@color/blue_text"
+                        android:textSize="18sp"
+                        android:layout_weight="0.8"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="不限时"
+                        android:id="@+id/jhq_tip1"
+                        android:textSize="16sp"
+                        android:layout_weight="1"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="已用3小时"
+                        android:id="@+id/jhq_tip2"
+                        android:textSize="16sp"
+                        android:textColor="@color/red"
+                        android:layout_weight="1"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:layout_weight="1"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/bg_grey"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"></View>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_edittext_normal"
+                    android:padding="10dp"
+                    android:layout_marginTop="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="消毒柜"
+                        android:drawableLeft="@mipmap/dv_xd"
+                        android:gravity="center_vertical"
+                        android:drawablePadding="8dp"
+                        android:textColor="@color/blue_text"
+                        android:textSize="18sp"
+                        android:layout_weight="0.8"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="可用6次"
+                        android:id="@+id/xdg_tip1"
+                        android:textSize="16sp"
+                        android:layout_weight="1"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="已用3次"
+                        android:id="@+id/xdg_tip2"
+                        android:textSize="16sp"
+                        android:textColor="@color/red"
+                        android:layout_weight="1"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:id="@+id/xdg_tip3"
+                        android:layout_weight="1"
+                        android:textColor="@color/green_bt"
+                        android:text="可用3次"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/bg_grey"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"></View>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_edittext_normal"
+                    android:padding="10dp"
+                    android:layout_marginTop="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="净水器"
+                        android:drawableLeft="@mipmap/dv_js"
+                        android:gravity="center_vertical"
+                        android:drawablePadding="8dp"
+                        android:textColor="@color/blue_text"
+                        android:textSize="18sp"
+                        android:layout_weight="0.8"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="可用6次"
+                        android:id="@+id/jsq_tip1"
+                        android:textSize="16sp"
+                        android:layout_weight="1"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="已用3次"
+                        android:id="@+id/jsq_tip2"
+                        android:textSize="16sp"
+                        android:textColor="@color/red"
+                        android:layout_weight="1"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:id="@+id/jsq_tip3"
+                        android:layout_weight="1"
+                        android:textColor="@color/green_bt"
+                        android:text="可用3次"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/bg_grey"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"></View>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:textAlignment="center"
+                    android:layout_margin="20dp"
+                    android:textColor="@color/red"
+                    android:textSize="16sp"
+                    android:id="@+id/tv_hint"
+                    android:text="（尚未购买当日服务）"
+                    >
+                </TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="0.5"
+                android:background="@color/white"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="云头柜使用日志"
+                        android:textSize="16sp"
+                        android:textColor="@color/black_text"
+                        android:padding="12dp"
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/tv_tm"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="操作"
+                        android:textSize="16sp"
+                        android:textColor="@color/black_text"
+                        android:layout_toRightOf="@id/tv_tm"
+                        android:padding="12dp"
+                        android:layout_marginLeft="30dp"
+                        android:visibility="invisible"
+                        />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_cccccc"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"></View>
+
+                <com.andview.refreshview.XRefreshView
+                    android:id="@+id/xrefreshview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        />
+                </com.andview.refreshview.XRefreshView>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

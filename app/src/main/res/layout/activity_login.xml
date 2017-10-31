@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.witiot.cloudbox.views.login.LoginActivity"
+    android:orientation="horizontal"
+    android:fitsSystemWindows="true"
+    android:background="@mipmap/login_bg"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/clear"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="35dp"
+        >
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/tab_group">
+
+            <RadioButton
+                android:id="@+id/login_tab"
+                android:layout_width="wrap_content"
+                android:layout_height="134px"
+                android:layout_weight="1"
+                android:background="@drawable/login_tab_bg"
+                android:button="@null"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/register_tab"
+                android:layout_width="wrap_content"
+                android:layout_height="134px"
+                android:layout_weight="1"
+                android:background="@drawable/register_tab_bg"
+                android:button="@null" />
+        </RadioGroup>
+
+        <FrameLayout
+            android:background="@color/white"
+            android:id="@+id/fgContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

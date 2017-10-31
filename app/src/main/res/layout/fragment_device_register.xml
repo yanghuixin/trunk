@@ -1,0 +1,359 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="com.witiot.cloudbox.views.device.DeviceRegisterFragment"
+    android:layout_marginLeft="60dp"
+    android:layout_marginRight="60dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/clear"
+        android:layout_marginRight="100dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="省份："
+                android:gravity="center"  />
+
+            <!--<com.witiot.cloudbox.widget.ClearEditText-->
+                <!--android:id="@+id/edt_province"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="60dp"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:background="@drawable/bg_edittext_focused"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:hint="请选择省份"-->
+                <!--android:inputType="text"-->
+                <!--android:textSize="16sp"-->
+                <!--android:paddingLeft="15dp"-->
+                <!--android:paddingRight="15dp"-->
+                <!--android:textColorHint="@color/disable" />-->
+
+            <TextView
+                android:id="@+id/edt_province"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/bg_edittext_focused"
+                android:gravity="right|center_vertical"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:hint="请选择省份"
+                android:textColorHint="@color/disable"
+                android:drawableRight="@mipmap/sp_down"
+                android:drawablePadding="10dp"
+                android:textSize="16sp"
+                android:maxLength="30"
+                android:textColor="@color/black_text"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="城市："
+                android:gravity="center"  />
+
+            <!--<com.witiot.cloudbox.widget.ClearEditText-->
+                <!--android:id="@+id/edt_city"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="60dp"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:background="@drawable/bg_edittext_focused"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:hint="请选择城市"-->
+                <!--android:inputType="text"-->
+                <!--android:textSize="16sp"-->
+                <!--android:paddingLeft="15dp"-->
+                <!--android:paddingRight="15dp"-->
+                <!--android:textColorHint="@color/disable" />-->
+
+            <TextView
+                android:id="@+id/edt_city"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/bg_edittext_focused"
+                android:gravity="right|center_vertical"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:hint="请选择城市"
+                android:textColorHint="@color/disable"
+                android:drawableRight="@mipmap/sp_down"
+                android:drawablePadding="10dp"
+                android:textSize="16sp"
+                android:maxLength="30"
+                android:textColor="@color/black_text"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="医院："
+                android:gravity="center"  />
+
+            <!--<com.witiot.cloudbox.widget.ClearEditText-->
+                <!--android:id="@+id/edt_hospital"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="60dp"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:background="@drawable/bg_edittext_focused"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:hint="请选择医院"-->
+                <!--android:inputType="text"-->
+                <!--android:textSize="16sp"-->
+                <!--android:paddingLeft="15dp"-->
+                <!--android:paddingRight="15dp"-->
+                <!--android:textColorHint="@color/disable" />-->
+
+            <TextView
+                android:id="@+id/edt_hospital"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/bg_edittext_focused"
+                android:gravity="right|center_vertical"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:hint="请选择医院"
+                android:textColorHint="@color/disable"
+                android:drawableRight="@mipmap/sp_down"
+                android:drawablePadding="10dp"
+                android:textSize="16sp"
+                android:maxLength="30"
+                android:textColor="@color/black_text"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="科室："
+                android:gravity="center"  />
+
+            <!--<com.witiot.cloudbox.widget.ClearEditText-->
+            <!--android:id="@+id/edt_depart"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:background="@drawable/bg_edittext_focused"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:hint="请选择科室"-->
+            <!--android:inputType="text"-->
+            <!--android:textSize="16sp"-->
+            <!--android:paddingLeft="15dp"-->
+            <!--android:paddingRight="15dp"-->
+            <!--android:textColorHint="@color/disable" />-->
+
+            <TextView
+                android:id="@+id/edt_depart"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/bg_edittext_focused"
+                android:gravity="right|center_vertical"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:hint="请选择科室"
+                android:textColorHint="@color/disable"
+                android:drawableRight="@mipmap/sp_down"
+                android:drawablePadding="10dp"
+                android:textSize="16sp"
+                android:maxLength="30"
+                android:textColor="@color/black_text">
+            </TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"
+        android:background="@color/clear"
+        android:layout_marginRight="100dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="楼层："
+                android:gravity="center"  />
+
+            <TextView
+                android:id="@+id/edt_floorNum"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/bg_edittext_focused"
+                android:gravity="right|center_vertical"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:hint="请选择楼层"
+                android:textColorHint="@color/disable"
+                android:drawableRight="@mipmap/sp_down"
+                android:drawablePadding="10dp"
+                android:textSize="16sp"
+                android:maxLength="30"
+                android:textColor="@color/black_text">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="房号："
+                android:gravity="center"  />
+
+            <TextView
+                android:id="@+id/edt_roomNum"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/bg_edittext_focused"
+                android:gravity="right|center_vertical"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:hint="请选择房号"
+                android:textColorHint="@color/disable"
+                android:drawableRight="@mipmap/sp_down"
+                android:drawablePadding="10dp"
+                android:textSize="16sp"
+                android:maxLength="30"
+                android:textColor="@color/black_text">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="房型："
+                android:gravity="center"  />
+
+            <TextView
+                android:id="@+id/edt_roomType"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/bg_edittext_focused"
+                android:gravity="right|center_vertical"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:hint="请选择房型"
+                android:textColorHint="@color/disable"
+                android:drawableRight="@mipmap/sp_down"
+                android:drawablePadding="10dp"
+                android:textSize="16sp"
+                android:maxLength="30"
+                android:textColor="@color/black_text">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="设备："
+                android:gravity="center"  />
+
+            <TextView
+                android:id="@+id/edt_device"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="10dp"
+                android:drawablePadding="25dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="16dp"
+                android:textColor="@color/blue_text"
+                android:textColorHint="@color/disable" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_device_register"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/btn_resetpwd_bg"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:text="设备注册"/>
+
+    </LinearLayout>
+
+</LinearLayout>

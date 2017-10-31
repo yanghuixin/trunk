@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.witiot.cloudbox.views.login.LoginFragment"
+    android:layout_marginLeft="60dp"
+    android:layout_marginRight="60dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@mipmap/wechat"
+        android:layout_marginTop="30dp"
+        android:drawablePadding="8dp"
+        android:textColor="@color/grey_cccccc"
+        android:text="系统设置"
+        android:id="@+id/wechat_login"
+        android:layout_gravity="center_horizontal"/>
+
+
+
+</LinearLayout>

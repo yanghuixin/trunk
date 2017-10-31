@@ -1,0 +1,6 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="perfect_info_pop_w">480dp</dimen>
+    <dimen name="listview_divider">12dp</dimen>
+    <dimen name="layout_margin_1">1dp</dimen>
+</resources>

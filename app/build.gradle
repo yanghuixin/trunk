@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+    defaultConfig {
+        applicationId "com.witiot.cloudbox"
+        minSdkVersion 23
+        targetSdkVersion 25
+        versionCode 6
+        versionName "1.0.9"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    //移除lint检测的error
+    lintOptions {
+        abortOnError false
+        disable 'MissingTranslation'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    //https://github.com/huxq17/XRefreshView
+    compile project(':library')
+    //https://github.com/gzu-liyujiang/AndroidPicker
+    compile('com.github.gzu-liyujiang.AndroidPicker:WheelPicker:latest.release') {
+        exclude group: 'com.android.support'
+    }
+//    https://github.com/yanzhenjie/AndPermission/blob/master/README-CN.md
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'org.xutils:xutils:3.5.0'
+    compile 'com.google.code.gson:gson:2.6.1'
+    compile 'com.facebook.fresco:fresco:1.1.0'
+    compile 'com.huxq17.xrefreshview:xrefreshview:3.6.9'//一个万能的 android 下拉上拉刷新的框架,完美支持 recyclerview
+    compile 'com.yanzhenjie:permission:1.1.0'//AndPermission是一个运行权限管理库，兼容Android O，同时最大程度上兼容了国产机
+    compile 'com.github.MagicMashRoom:SuperCalendar:v1.4'//android 自定义日历控件 支持左右无限滑动 周月切换 标记日期显示 自定义显示效果跳转到指定日期
+    compile 'com.github.nanchen2251:CompressHelper:1.0.1'//Android第三方开源库：图片压缩
+    testCompile 'junit:junit:4.12'//单元测试框架
+    compile 'com.jakewharton:butterknife:8.2.1'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.github.a-voyager:AutoInstaller:v1.0'//应用自动静默更新安装库.
+    compile 'com.pgyersdk:sdk:2.7.6'//蒲公英
+}

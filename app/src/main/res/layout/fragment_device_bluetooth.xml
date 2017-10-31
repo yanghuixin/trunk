@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.witiot.cloudbox.views.device.DeviceRegisterFragment"
+    android:layout_marginLeft="60dp"
+    android:layout_marginRight="60dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/blue_title"
+        android:textColor="@color/white"
+        android:text="选择设备"
+        android:id="@+id/bluetooth_link"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="蓝牙连接状态："
+        android:textSize="20sp"
+        android:id="@+id/bluetooth_status"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/bluetooth_link"
+        />
+
+</RelativeLayout>

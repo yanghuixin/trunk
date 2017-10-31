@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:textSize="18sp"
+            android:textColor="@color/blue_title"
+            android:gravity="center"
+            android:id="@+id/current_month"
+            android:hint="2018"
+            android:textColorHint="@color/clear"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grey_text"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="注：篮圈为已购日期"
+            android:layout_marginRight="10dp"
+            android:textSize="12sp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:background="#fff">
+        <TextView
+            style="@style/weekIndicatorStyle"
+            android:text="一" />
+        <TextView
+            style="@style/weekIndicatorStyle"
+            android:text="二"/>
+        <TextView
+            style="@style/weekIndicatorStyle"
+            android:text="三" />
+        <TextView
+            style="@style/weekIndicatorStyle"
+            android:text="四" />
+        <TextView
+            style="@style/weekIndicatorStyle"
+            android:text="五" />
+        <TextView
+            style="@style/weekIndicatorStyle"
+            android:text="六" />
+        <TextView
+            style="@style/weekIndicatorStyle"
+            android:text="日" />
+    </LinearLayout>
+
+
+        <com.ldf.calendar.view.MonthPager
+            android:id="@+id/calendar_view"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:background="#fff">
+        </com.ldf.calendar.view.MonthPager>
+
+
+</LinearLayout>

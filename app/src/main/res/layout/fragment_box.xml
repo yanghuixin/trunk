@@ -1,0 +1,581 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.witiot.cloudbox.views.login.LoginFragment"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@color/blue_title">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:drawableLeft="@mipmap/yuntougui_kaiguan"
+                android:drawablePadding="12dp"
+                android:text="云头柜开关"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:gravity="center_vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_marginRight="20dp"
+                android:drawableLeft="@mipmap/used_rili"
+                android:drawablePadding="12dp"
+                android:text="使用日历"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:paddingTop="10dp"
+                android:id="@+id/box_record_tv"
+                android:paddingBottom="10dp"
+                />
+
+        </RelativeLayout>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="今天是："
+                android:textColor="@color/grey_text"
+                android:textSize="14sp"
+                android:id="@+id/ytg_day_hint"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignBaseline="@id/title"
+                android:text="2017.09.08"
+                android:textColor="@color/orange_text"
+                android:textSize="18sp"
+                android:layout_toRightOf="@+id/ytg_day_hint"
+                android:id="@+id/ytg_day"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_edittext_normal"
+            android:padding="20dp"
+            android:focusableInTouchMode="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/pw_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/dv_mm" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/pw_iv"
+                android:drawablePadding="15dp"
+                android:text="密码锁"
+                android:textColor="@color/blue_text"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/pw_iv"
+                android:drawablePadding="15dp"
+                android:text="智能开锁，请及时关闭密码锁"
+                android:textColor="@color/grey_text"
+                android:textSize="14sp"
+                android:layout_alignBottom="@+id/pw_iv"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/switch_pw_open"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/switch_bt"
+                android:text="开锁"
+                android:textColor="@color/white"
+                android:layout_marginLeft="300dp"/>
+
+            <Chronometer
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/switch_pw_open"
+                android:text="00:12"
+                android:format="%s"
+                android:textColor="@color/black_text"
+                android:textSize="22sp"
+                android:id="@+id/time_pw"
+                android:visibility="gone"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edittext_focused"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="7dp"
+                android:layout_toRightOf="@id/switch_pw_open"
+                android:hint="4位密码"
+                android:maxLength="4"
+                android:id="@+id/pw_et"
+                android:padding="10dp"
+                android:inputType="text"
+                />
+
+            <Button
+                android:id="@+id/switch_pw_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/switch_bt"
+                android:text="关闭"
+                android:textColor="@color/white"
+                android:layout_toRightOf="@id/switch_pw_open"
+                android:layout_marginLeft="120dp"
+                android:enabled="false"
+              />
+
+            <TextView
+                android:id="@+id/pw_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="已用0次/不限次"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_edittext_normal"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/air_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/dv_kq" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/air_iv"
+                android:drawablePadding="15dp"
+                android:text="空气净化器"
+                android:textColor="@color/blue_text"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/air_iv"
+                android:drawablePadding="15dp"
+                android:text="智能启动，不用时请关闭"
+                android:textColor="@color/grey_text"
+                android:textSize="14sp"
+                android:layout_alignBottom="@+id/air_iv"
+                android:layout_marginBottom="8dp"/>
+
+
+            <Button
+                android:id="@+id/switch_air_open"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/switch_bt"
+                android:text="启动"
+                android:textColor="@color/white"
+                android:layout_marginLeft="300dp"/>
+
+            <Chronometer
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/switch_air_open"
+                android:text="00:00"
+                android:textColor="@color/orange_text"
+                android:textSize="20sp"
+                android:id="@+id/time_air"
+                android:visibility="invisible"/>
+
+            <Button
+                android:id="@+id/switch_air_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/switch_bt"
+                android:text="关闭"
+                android:textColor="@color/white"
+                android:layout_toRightOf="@id/time_air"
+                android:layout_marginLeft="50dp"
+                android:enabled="false"
+               />
+
+            <TextView
+                android:id="@+id/air_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="已用0分钟/不限时"
+                android:textSize="16sp"
+               />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_edittext_normal"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/xdg_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/dv_xd" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/xdg_iv"
+                android:drawablePadding="15dp"
+                android:text="消毒柜"
+                android:textColor="@color/blue_text"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/xdg_iv"
+                android:drawablePadding="15dp"
+                android:text="智能启动，60分钟后自动关闭"
+                android:textColor="@color/grey_text"
+                android:textSize="14sp"
+                android:layout_alignBottom="@+id/xdg_iv"
+                android:layout_marginTop="10dp"/>
+
+            <Button
+                android:id="@+id/switch_xdg_open"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/switch_bt"
+                android:text="启动"
+                android:textColor="@color/white"
+                android:layout_marginLeft="300dp"/>
+
+            <Chronometer
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/switch_xdg_open"
+                android:textColor="@color/orange_text"
+                android:textSize="20sp"
+                android:id="@+id/time_xdg"
+                android:visibility="invisible"/>
+
+            <Button
+                android:id="@+id/switch_xdg_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/switch_bt"
+                android:text="关闭"
+                android:textColor="@color/white"
+                android:layout_toRightOf="@id/time_xdg"
+                android:layout_marginLeft="50dp"
+                android:enabled="false"
+                />
+
+            <TextView
+                android:id="@+id/xdg_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text=""
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_edittext_normal"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/jsq_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/dv_js" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/jsq_iv"
+                android:drawablePadding="15dp"
+                android:text="净水器"
+                android:textColor="@color/blue_text"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/jsq_iv"
+                android:drawablePadding="15dp"
+                android:text="智能启动，15分钟后自动关闭"
+                android:textColor="@color/grey_text"
+                android:textSize="14sp"
+                android:layout_alignBottom="@+id/jsq_iv"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/switch_jsq_open"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/switch_bt"
+                android:text="启动"
+                android:textColor="@color/white"
+                android:layout_marginLeft="300dp"/>
+
+            <Chronometer
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/switch_jsq_open"
+                android:textColor="@color/orange_text"
+                android:visibility="invisible"
+                android:textSize="20sp"
+                android:id="@+id/time_jsq"/>
+
+
+            <Button
+                android:id="@+id/switch_jsq_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/switch_bt"
+                android:text="关闭"
+                android:textColor="@color/white"
+                android:layout_toRightOf="@id/time_jsq"
+                android:layout_marginLeft="50dp"
+                android:enabled="false"
+                />
+
+            <TextView
+                android:id="@+id/jsq_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text=""
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/grey_statusbar"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grey_text"
+            android:layout_marginLeft="20dp"
+            android:drawableLeft="@mipmap/time"
+            android:drawablePadding="10dp"
+            android:text=""
+            android:textSize="14sp"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:id="@+id/time_tv"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue_text"
+            android:layout_marginLeft="4dp"
+            android:text=""
+            android:id="@+id/control_name"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/time_tv"
+            />
+
+
+        <TextView
+            android:id="@+id/box_buy_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:background="@color/green_bt"
+            android:drawableLeft="@mipmap/ic_buy"
+            android:drawablePadding="12dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="购买服务"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="0dp"
+            android:text=""
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:textColor="@color/black_text"
+            android:layout_toLeftOf="@id/box_buy_service"
+            android:layout_marginRight="40dp"
+            android:id="@+id/help"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/connect_bluetooth_bt"
+            android:layout_centerInParent="true"
+            android:text="重新连接设备"
+            android:textColor="@color/white"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:background="@drawable/blue_bt_normal"
+            android:visibility="gone"
+            />
+
+    </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="42dp"
+        android:layout_marginBottom="60dp"
+        android:background="@color/clear_half"
+        android:id="@+id/reLinkRl"
+        android:visibility="gone">
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textColor="@color/white"
+             android:background="@drawable/switch_bt"
+             android:textSize="22sp"
+             android:text="重新连接设备"
+             android:id="@+id/reLinkBt"
+             android:paddingLeft="20dp"
+             android:paddingRight="20dp"
+             android:paddingBottom="12dp"
+             android:paddingTop="12dp"
+             android:layout_centerInParent="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:lineSpacingMultiplier="1.5"
+            android:text="设备连接失败，请点击按钮重连。"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/white"
+            android:layout_above="@id/reLinkBt"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="42dp"
+        android:layout_marginBottom="60dp"
+        android:background="@color/clear_half"
+        android:id="@+id/rl_nodata"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:background="@color/green_bt"
+            android:textSize="22sp"
+            android:text="购买服务"
+            android:id="@+id/btn_buy_service"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:lineSpacingMultiplier="1.5"
+            android:text="您尚未购买今天的云头柜服务，无法操作开关。"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/white"
+            android:layout_above="@id/btn_buy_service"/>
+    </RelativeLayout>
+
+</FrameLayout>

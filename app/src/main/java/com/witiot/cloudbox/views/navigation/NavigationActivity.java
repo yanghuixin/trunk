@@ -25,6 +25,7 @@ import com.google.gson.reflect.TypeToken;
 import com.witiot.cloudbox.R;
 import com.witiot.cloudbox.http.XRequest;
 import com.witiot.cloudbox.http.XRequestCallback;
+import com.witiot.cloudbox.liu.fragment.YtgStoreFragment;
 import com.witiot.cloudbox.model.AdListRes;
 import com.witiot.cloudbox.model.AdListRqs;
 import com.witiot.cloudbox.model.DeviceAllotRequest;
@@ -59,9 +60,9 @@ import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-//导航Activity
+
 public class NavigationActivity extends BaseActivity {
-    
+
     @BindView(R.id.rb_internet)
     RadioButton rbInternet;
     @BindView(R.id.rb_box)
@@ -98,8 +99,8 @@ public class NavigationActivity extends BaseActivity {
         startService(intent1);
 
         // 启动 开机广告
-        Intent intent2 = new Intent(NavigationActivity.this, SplashActivity.class);
-        startActivity (intent2);
+//        Intent intent2 = new Intent(NavigationActivity.this, SplashActivity.class);
+//        startActivity (intent2);
 
         AndPermission.with(NavigationActivity.this)
             .requestCode(200)
@@ -180,7 +181,7 @@ public class NavigationActivity extends BaseActivity {
 
 
     private void initUI() {
-// TODO: 2017/10/31 看到此处 
+
         switchFragment(new InternetFragment());
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -189,7 +190,8 @@ public class NavigationActivity extends BaseActivity {
                 Fragment to = null;
                 switch (i){
                     case R.id.rb_internet:
-                        to = new InternetFragment();
+                       // to = new InternetFragment();
+                        to = new YtgStoreFragment();
                         break;
                     case R.id.rb_box:
                         to = new BoxFragment();
@@ -216,9 +218,9 @@ public class NavigationActivity extends BaseActivity {
                         break;
                 }
                 if(to != null) {
-                    switchFragment(to);//replace传入的fragment（to）
+                    switchFragment(to);
                 }else {
-                    rbInternet.performClick();//默认第一个button被点击
+                    rbInternet.performClick();
                 }
             }
         });

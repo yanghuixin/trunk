@@ -56,7 +56,7 @@ import butterknife.Unbinder;
 
 /**
  * A simple {@link Fragment} subclass.
- * InternetFragment网上冲浪
+ * 网上冲浪
  */
 public class InternetFragment extends BaseFragment {
 
@@ -257,6 +257,11 @@ public class InternetFragment extends BaseFragment {
                         if (adBeanList != null) {
                             adListAdapter.setData(adBeanList);
                             adListAdapter.notifyDataSetChanged();
+                            if(adBeanList.size() == 0 ){
+                                textViewTimeCount.cancel();
+                                adLl.setVisibility(View.GONE);
+                                initAppUI(5);
+                            }
                         }
 
                         // 总页数

@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!--使用记录访问权限-->
     <uses-permission
         android:name="android.permission.PACKAGE_USAGE_STATS"
         tools:ignore="ProtectedPermissions" />
@@ -21,7 +20,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -30,24 +28,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="PGYER_APPID"
-            android:value="9c8dd0dc16efb580fd41bee7b2b27dff" >
-        </meta-data>
+            android:value="9c8dd0dc16efb580fd41bee7b2b27dff"></meta-data>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.witiot.cloudbox.fileProvider"
-            android:grantUriPermissions="true"
             android:exported="false"
+            android:grantUriPermissions="true"
             tools:replace="name,authorities,exported,grantUriPermissions">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths"
-                tools:replace="name,resource"/>
+                tools:replace="name,resource" />
         </provider>
-
         <provider
             android:name=".utils.MyProvider"
             android:authorities="com.pgyersdk.fileProviderr"
@@ -66,6 +61,7 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -130,9 +126,9 @@
 
         <service
             android:name=".service.PostFlowService"
-            android:priority = "1000"
             android:enabled="true"
-            android:exported="false" />
+            android:exported="false"
+            android:priority="1000" />
 
         <activity
             android:name=".views.yjzx.NewsListActivity"
@@ -150,17 +146,30 @@
             android:name=".utils.bluetooth.DevicesListActivity"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar.Permissions" />
-
-        <activity android:name=".views.member.ChangeJfActivity"
+        <activity
+            android:name=".views.member.ChangeJfActivity"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar.Permissions" />
-        <activity android:name=".views.member.ChangejfRecordActivity"
+        <activity
+            android:name=".views.member.ChangejfRecordActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar.Permissions" ></activity>
-        <service android:name=".service.MyBletoothService"
+            android:theme="@style/AppTheme.NoActionBar.Permissions" />
+
+        <service
+            android:name=".service.MyBletoothService"
             android:enabled="true"
-            android:priority = "1000"
-            android:exported="true"></service>
+            android:exported="true"
+            android:priority="1000" />
+
+        <activity android:name=".liu.fragment.ProductDetailsActivity"></activity>
+        <receiver android:name=".utils.UpdateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

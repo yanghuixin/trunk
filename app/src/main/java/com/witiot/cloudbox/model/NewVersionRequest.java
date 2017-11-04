@@ -9,7 +9,7 @@ public class NewVersionRequest extends BaseRqs{
     /**
      * dat : { deviceId, hospitalId, departId, floorNum, roomNum, createId, cpu, storageSize, screen, color, osName, appVersion, status }
      */
-// TODO: 2017/10/30 谁的数据源？
+
     private DatBean dat;
     public DatBean getDat() {
         return dat;

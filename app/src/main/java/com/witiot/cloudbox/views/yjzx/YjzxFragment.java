@@ -60,7 +60,6 @@ import butterknife.Unbinder;
 
 /**
  * A simple {@link Fragment} subclass.
- *  YjzxFragment医教中心
  */
 public class YjzxFragment extends BaseFragment {
 

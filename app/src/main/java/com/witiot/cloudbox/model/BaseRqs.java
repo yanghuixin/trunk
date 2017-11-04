@@ -3,7 +3,7 @@ package com.witiot.cloudbox.model;
 /**
  * Created by lixin on 2017/8/2.
  */
-// TODO: 2017/10/30 谁的数据源
+
 public class BaseRqs {
     private String tok;
     private String ver;

@@ -64,9 +64,9 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-        initUI();//根据id显示登陆或注册的fragment
+        initUI();
 
-        switchFragment(new com.witiot.cloudbox.views.login.LoginFragment());//显示登陆的fragment
+        switchFragment(new com.witiot.cloudbox.views.login.LoginFragment());
 
         // 改为先取医院编号
 //        if(StringUtils.stringIsNotEmpty((String) SPUtils.get(this,"tok",""))){
@@ -78,31 +78,32 @@ public class LoginActivity extends BaseActivity {
 
         permissionRqs();
     }
-
     private void getNewVersion() {
-            //NewVersionReques自己建的实体类（创建一个对象只是方便转换成最终上传的 json 字符串）
-            //所有paramlist.set方法都是传给后台的参数
-            //OKHttp是把map转 json，这个是改成把自建的对象转json
-            //get请求是拼接，post请求就是把一个完整的 json post到服务器
-        // paramlist
+        //NewVersionReques自己建的实体类（创建一个对象只是方便转换成最终上传的 json 字符串
+        //），所有set方法都是传给后台的参数
+        //OKHttp是把map转 json，这个只是改成把自建的对象转json而已
+        //post 请求就是把一个完整的 json post到服务器，get 请求才是拼接
         NewVersionRequest.DatBean.Paramlist paramlist = new NewVersionRequest.DatBean.Paramlist();
         paramlist.setVersionNumber(CommonUtils.getAppVersionName(this).replace(".",""));
         // dat
         NewVersionRequest.DatBean datBean = new NewVersionRequest.DatBean();
         datBean.setParamlist(paramlist);
-
         // request
         NewVersionRequest rqs = new NewVersionRequest();
         rqs.setCmd("get");
         rqs.setSrc("3");
-        rqs.setTok("");//Tok传入空或从缓存share里取tok对应的值 rqs.setTok((String) SPUtils.get(this, "tok", ""));
+        rqs.setTok("");//Tok传入空或从缓存share里tok对应的值 rqs.setTok((String) SPUtils.get(this, "tok", ""));//Tok传入从缓存share里tok对应的值
         rqs.setVer("1");
         rqs.setDat(datBean);
         final Gson gson = new Gson();
         XRequest xRequest = new XRequest();
         xRequest.sendPostRequest(this, gson.toJson(rqs), "version/updateVersion", new XRequestCallback() {
             @Override
-            public void callback(boolean isSucceed, String result) {// 如果成功，result是后台返回的json数据，解析出来就好
+            public void callback(boolean isSucceed, String result) {// result后台返回的json数据，解析出来就好
+                if(!isSucceed){
+                    toastShow(result);
+                    return;
+                }
                 Type typeToken = new TypeToken<UpdateVersionRes>() {}.getType();
                 UpdateVersionRes res = gson.fromJson(result, typeToken);
                 if (res.getRet().equals("10000")) {
@@ -153,8 +154,8 @@ public class LoginActivity extends BaseActivity {
 
     }
 
-//软件需要授权的说明对话框展示
-    private void permissionRqs() {//软件需要授权的说明对话框展示
+
+    private void permissionRqs() {
         AndPermission.with(LoginActivity.this)
                 .requestCode(200)
                 .permission(Permission.PHONE,Permission.LOCATION,Permission.STORAGE)
@@ -184,7 +185,7 @@ public class LoginActivity extends BaseActivity {
                 .start();
     }
 
-//权限申请的回调。
+
     private PermissionListener listener = new PermissionListener() {
         @Override
         public void onSucceed(int requestCode, List<String> grantedPermissions) {
@@ -209,16 +210,16 @@ public class LoginActivity extends BaseActivity {
     };
 
 
-    private void initUI() {//根据id显示登陆或注册的fragment
+    private void initUI() {
         tabGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
                 switch (i){
                     case R.id.login_tab:
-                        switchFragment(new LoginFragment());//显示登陆的fragment
+                        switchFragment(new LoginFragment());
                         break;
                     case R.id.register_tab:
-                        switchFragment(new RegisterFragment());//显示注册的fragment
+                        switchFragment(new RegisterFragment());
                         break;
                 }
             }
@@ -226,13 +227,10 @@ public class LoginActivity extends BaseActivity {
     }
 
     public void setLogin(){
-        //performClick 是使用代码主动去调用控件的点击事件（模拟人手去触摸控件）
-        //模拟点击事件,可以调用performClick()方法以引发 Click 事件。
         loginType.performClick();
     }
 
-    private void switchFragment(Fragment to) {//替换所需的fragment
-        // getSupportFragmentManager().beginTransaction().add(R.id.fl_main, new ContentFragment(), null).commit();
+    private void switchFragment(Fragment to) {
         FragmentTransaction transaction = getSupportFragmentManager()
                 .beginTransaction();
 //        if (mContent == null) {
@@ -255,7 +253,6 @@ public class LoginActivity extends BaseActivity {
     }
 
     private boolean hasPermissionToReadNetworkStats() {
-        // TODO: 2017/10/31 看不懂
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             return true;
         }
@@ -271,9 +268,8 @@ public class LoginActivity extends BaseActivity {
     }
 
     // 打开“有权查看使用情况的应用”页面
-    private void requestReadNetworkStats() {//通过 使用记录访问权限 我们可以查看设备上其它应用使用情况的统计信息等。
+    private void requestReadNetworkStats() {
         toastShow("请开启云头柜权限\n点击 \"云头柜\" --> 点击右侧开关即可");
-        //通过如下代码进而手动打开权限
         Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
         startActivity(intent);
     }
@@ -294,7 +290,7 @@ public class LoginActivity extends BaseActivity {
     /**
      * 读取 设备所属的 医院编号
      */
-    private void getHospitalId() {// 读取医院编号，并判断 是否已经登录
+    private void getHospitalId() {
 
         // paramlist
         DeviceAllotRequest.DatBean.Paramlist paramlist = new DeviceAllotRequest.DatBean.Paramlist();
@@ -322,7 +318,7 @@ public class LoginActivity extends BaseActivity {
         xRequest.sendPostRequest(this, gson.toJson(rqs), "device/getAllotList", new XRequestCallback() {
             @Override
             public void callback(boolean isSucceed, String result) {
-                dismissProgress();//释放对话框所占的资源
+                dismissProgress();
                 if (isSucceed) {
                     Type typeToken = new TypeToken<DeviceAllotResponse>() {}.getType();
                     DeviceAllotResponse res = gson.fromJson(result, typeToken);

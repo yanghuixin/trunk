@@ -3,4 +3,7 @@
     <dimen name="perfect_info_pop_w">480dp</dimen>
     <dimen name="listview_divider">12dp</dimen>
     <dimen name="layout_margin_1">1dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
 </resources>

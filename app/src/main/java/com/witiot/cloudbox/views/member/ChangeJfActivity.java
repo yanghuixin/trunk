@@ -245,7 +245,7 @@ public class ChangeJfActivity extends BaseActivity {
         rqs.setDat(dat);
         rqs.setCmd("add");
         rqs.setSrc("3");
-        rqs.setTok((String) SPUtils.get(this, "tok", ""));
+        rqs.setTok((String) SPUtils.get(this, "tok", ""));//Tok传入从缓存share里tok对应的值
         rqs.setVer("1");
 
         final Gson gson = new Gson();

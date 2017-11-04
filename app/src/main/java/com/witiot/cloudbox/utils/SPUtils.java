@@ -69,7 +69,7 @@ public class SPUtils {
         {
 
             if(context == null){
-                context = MyApplication.getContext();//得到MyApplication的上下文对象
+                context = MyApplication.getContext();
             }
 
             SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
@@ -196,7 +196,7 @@ public class SPUtils {
                 {
                     if (sApplyMethod != null)
                     {
-                        sApplyMethod.invoke(editor);//首先Method类代表一个方法，所以invoke（调用）就是调用Method类代表的方法。它可以让你实现动态调用
+                        sApplyMethod.invoke(editor);
                         return;
                     }
                 } catch (IllegalArgumentException e)

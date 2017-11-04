@@ -57,7 +57,7 @@ import static android.app.Activity.RESULT_OK;
 
 /**
  * A simple {@link Fragment} subclass.
- * MemberFragment会员中心
+ * 会员中心
  */
 public class MemberFragment extends BaseFragment {
 
@@ -184,7 +184,7 @@ public class MemberFragment extends BaseFragment {
         });
     }
 
-    private void initView() {//获取个人信息
+    private void initView() {
 
         userName.setText(custInfoBean.getRows().getCustomerName());
         if (custInfoBean.getRows().getGendar() == 1) {

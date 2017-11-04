@@ -58,7 +58,6 @@ import butterknife.Unbinder;
 
 /**
  * A simple {@link Fragment} subclass.
- * SecureFragment手术意外险
  */
 public class SecureFragment extends BaseFragment {
 

@@ -12,6 +12,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.content.FileProvider;
+import android.util.Log;
 
 
 import com.witiot.cloudbox.http.UrlManage;
@@ -22,6 +23,7 @@ import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
+import java.io.DataOutputStream;
 import java.io.File;
 
 import top.wuhaojie.installerlibrary.AutoInstaller;
@@ -236,23 +238,64 @@ public class UpdateProcessor {
      * 安装应用
      */
     public void update() {
-//        AutoInstaller.getDefault(con).install(location_path);
-        File file = new File(Environment.getExternalStorageDirectory(), UPDATE_SERVERAPK);
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        Uri apkUri;
-        // Android 7.0 以上不支持 file://协议 需要通过 FileProvider 访问 sd卡 下面的文件，所以 Uri 需要通过 FileProvider 构造，协议为 content://
-        if (Build.VERSION.SDK_INT >= 24) {
-            // content:// 协议  files_root_down
-            apkUri = FileProvider.getUriForFile(con, "com.witiot.cloudbox.fileProvider", file);
-            //Granting Temporary Permissions to a URI
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        } else {
-            // file:// 协议
-            apkUri = Uri.fromFile(file);
+
+        String command = "pm install -r " + location_path;
+        int result = RootCommand(command);
+
+        if(result == -1){
+            File file = new File(Environment.getExternalStorageDirectory(), UPDATE_SERVERAPK);
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            Uri apkUri;
+            // Android 7.0 以上不支持 file://协议 需要通过 FileProvider 访问 sd卡 下面的文件，所以 Uri 需要通过 FileProvider 构造，协议为 content://
+            if (Build.VERSION.SDK_INT >= 24) {
+                // content:// 协议  files_root_down
+                apkUri = FileProvider.getUriForFile(con, "com.witiot.cloudbox.fileProvider", file);
+                //Granting Temporary Permissions to a URI
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            } else {
+                // file:// 协议
+                apkUri = Uri.fromFile(file);
+            }
+            intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
+            con.startActivity(intent);
+            System.exit(0);
         }
-        intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
-        con.startActivity(intent);
-        System.exit(0);
     }
+
+
+    /**
+     * http://blog.csdn.net/cfy137000/article/details/70257912
+     *
+     * 应用程序运行命令获取 Root权限，设备必须已破解(获得ROOT权限)
+     *
+     * @param command 命令：String apkRoot="chmod 777 "+getPackageCodePath(); RootCommand(apkRoot);
+     * @return  0 命令执行成功
+     */
+    public static int RootCommand(String command) {
+        Process process = null;
+        DataOutputStream os = null;
+        try {
+            process = Runtime.getRuntime().exec("su");
+            os = new DataOutputStream(process.getOutputStream());
+            os.writeBytes(command + "\n");
+            os.writeBytes("exit\n");
+            os.flush();
+            int i = process.waitFor();
+            Log.d("SystemManager", "i:" + i);
+            return i;
+        } catch (Exception e) {
+            Log.d("SystemManager", e.getMessage());
+            return -1;
+        } finally {
+            try {
+                if (os != null) {
+                    os.close();
+                }
+                process.destroy();
+            } catch (Exception e) {
+            }
+        }
+    }
+
 }

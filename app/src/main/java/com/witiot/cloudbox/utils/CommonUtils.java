@@ -56,17 +56,9 @@ public class CommonUtils {
     }
 
     public static void intentChrome(Context context,String urlStr) {
-        //根据用户的数据类型打开相应的Activity
         if(StringUtils.stringIsEmpty(urlStr)){
             return;
         }
-        /**
-         *  Intent.ACTION_VIEW
-         * String android.intent.action.VIEW
-         * 用于显示用户的数据。
-         * 比较通用，会根据用户的数据类型打开相应的Activity。
-         * 比如 tel:13400010001打开拨号程序，http://www.g.cn则会打开浏览器等。
-         */
         Intent intent = new Intent();
         intent.setAction("android.intent.action.VIEW");
         Uri url = Uri.parse(urlStr);
@@ -129,13 +121,11 @@ public class CommonUtils {
         }
     }
 
-    public static String byteToMBOrGB(long size){//byte转化为MB或者GB
-
+    public static String byteToMBOrGB(long size){
         long kb = 1024;
         long mb = kb*1024;
         long gb = mb*1024;
         if (size >= gb){
-            //(float)size/gb得到的商值，保留一位小数并且加上GB为单位
             return String.format("%.1f GB",(float)size/gb);
         }else if (size >= mb){
             float f = (float) size/mb;
@@ -166,7 +156,6 @@ public class CommonUtils {
     }
 
     public static Bitmap generateBitmap(String content, int width, int height) {
-        //生成QR二维码代码：http://dditblog.com/itshare_423.html
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         Map<EncodeHintType, String> hints = new HashMap<>();
         hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
@@ -191,7 +180,7 @@ public class CommonUtils {
 
 
 
-    public static long getTimesMonthMorning() {//获取年月日
+    public static long getTimesMonthMorning() {
         Calendar cal = Calendar.getInstance();
         cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), 0, 0, 0);
         cal.set(Calendar.DAY_OF_MONTH, cal.getActualMinimum(Calendar.DAY_OF_MONTH));
@@ -247,15 +236,15 @@ public class CommonUtils {
         textview.setCompoundDrawables(null, null, null, null);
     }
 
-    // 得到医院编号
+    // 医院编号
     public static String getHospitalId(Context context){
         if(context != null ) {
-            return (String) SPUtils.get(context, "ytg_hospitalId", "10002");//得到保存数据
+            return (String) SPUtils.get(context, "ytg_hospitalId", "10002");
         }else {
             return (String) SPUtils.get(MyApplication.getContext(), "ytg_hospitalId", "10002");
         }
     }
-    //设置医院编号
+
     public static void setHospitalId(Context context, String hospitalId){
         if(context != null) {
             SPUtils.put(context, "ytg_hospitalId", hospitalId);

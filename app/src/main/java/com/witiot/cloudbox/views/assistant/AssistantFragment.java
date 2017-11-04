@@ -35,8 +35,6 @@ import butterknife.Unbinder;
 /**
  * A simple {@link Fragment} subclass.
  * 云头柜开关
- *AssistantFragment康复助手
- * 康复助手是一个webView
  */
 public class AssistantFragment extends BaseFragment {
 

@@ -48,19 +48,20 @@ public class XRequest {
 
                 switch (msg.what) {
                     case RETURN:
-                        if(StringUtils.stringIsEmpty(resultStr)){//resultStr为空返回true
-                            callback.callback(false,resultStr);//public void callback(boolean isSucceed, String result);
+                        if(StringUtils.stringIsEmpty(resultStr)){
+                            callback.callback(false,resultStr);
                             return;
                         }
-                        //在运行期间无法得知泛型参数的类型，对这个类的对象进行序列化和反序列化都不能正常进行。
-                        // Gson通过借助TypeToken类来解决这个问题。只要将需要获取类型的泛型类作为TypeToken的泛
-                        // 型参数构造一个匿名的子类，就可以通过getType()方法获取到我们使用的泛型类的泛型参数类型
                         Type typeToken = new TypeToken<BaseRes>() {
-                        }.getType();//获取到我们使用的泛型类的泛型参数类型
-                          BaseRes baseRes = gson.fromJson(resultStr, typeToken);
-                        // TODO: 2017/10/31 如果 resultStr不为空就解析出 BaseRes对象此语句是什么意思
+                        }.getType();
+                        BaseRes baseRes = gson.fromJson(resultStr, typeToken);
                         if (!url.equals("advert/list") && baseRes.getRet().equals("10002")
                                 && baseRes.getMsg().contains("tok")) {
+                            SPUtils.remove(context,"tok");
+                            SPUtils.remove(context,"customerId");
+//                            callback.callback(false,resultStr);
+                            context.startActivity(new Intent(context, LoginActivity.class));
+                        }else if(baseRes.getMsg().contains("token超时")){
                             SPUtils.remove(context,"tok");
                             SPUtils.remove(context,"customerId");
 //                            callback.callback(false,resultStr);
@@ -87,14 +88,14 @@ public class XRequest {
 
 
 
-    public void sendPostRequest(Context context,String json, String url,XRequestCallback xRequestCallback){//PostRequest
+    public void sendPostRequest(Context context,String json, String url,XRequestCallback xRequestCallback){
         this.callback = xRequestCallback;
         this.context = context;
-//        if(NetworkUtils.isConnected()){
-//            resultStr = "你的网络好像有问题哎";
-//            mHandler.sendEmptyMessage(NULL);
-//            return;
-//        }
+        if(!NetworkUtils.isConnected()){
+            resultStr = "你的网络好像有问题哎";
+            mHandler.sendEmptyMessage(NULL);
+            return;
+        }
         if(gson == null) {
             gson = new Gson();
         }
@@ -108,14 +109,14 @@ public class XRequest {
         LogUtil.log("post data ",gson.toJson(params));
         cancelable =  x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
-            public void onSuccess(String result) {//result为空时返回空 （ callback.callback(false,resultStr) ），有值时返回result对应的值
+            public void onSuccess(String result) {
                 LogUtil.log(XRequest.this.url+"  result",result);
                 resultStr = result;
                 mHandler.sendEmptyMessage(RETURN);
             }
 
             @Override
-            public void onError(Throwable ex, boolean isOnCallback) {//网络请求失败时返回 resultStr = "网络连接超时，请稍后重试";或者 resultStr = "网络连接异常，请稍后重试";
+            public void onError(Throwable ex, boolean isOnCallback) {
                 resultStr = ex.toString();
                 mHandler.sendEmptyMessage(NULL);
             }
@@ -154,14 +155,14 @@ public class XRequest {
         LogUtil.log("post data ",gson.toJson(params));
         cancelable =  x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
-            public void onSuccess(String result) {//result为空时返回空 （ callback.callback(false,resultStr) ），有值时返回result对应的值
+            public void onSuccess(String result) {
                 LogUtil.log("result",result);
                 resultStr = result;
                 mHandler.sendEmptyMessage(RETURN);
             }
 
             @Override
-            public void onError(Throwable ex, boolean isOnCallback) {//网络请求失败时返回 resultStr = "网络连接超时，请稍后重试";或者 resultStr = "网络连接异常，请稍后重试";
+            public void onError(Throwable ex, boolean isOnCallback) {
                 resultStr = ex.toString();
                 mHandler.sendEmptyMessage(NULL);
             }

@@ -3,7 +3,7 @@ package com.witiot.cloudbox.model;
 /**
  * Created by lixin on 2017/8/2.
  */
-
+//接口返回的数据  创建对象的基类
 public class BaseRes {
 
 

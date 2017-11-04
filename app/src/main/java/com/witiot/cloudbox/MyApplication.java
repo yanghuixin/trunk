@@ -34,9 +34,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         context = this;
-        //初始化蒲公英
         PgyCrashManager.register(this);
-        
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
             public void uncaughtException(Thread thread, Throwable ex) {
@@ -76,16 +74,11 @@ public class MyApplication extends Application {
                         // ...
                     }
                 });//数据库更新操作
-        /**
-         * registerActivityLifecycleCallbacks是Application的一个接口，注册之后应用里的所有activity的生命周期都会被监控起来，我们可以在
-         此接口方法里实现一些特殊的需求。比如统计用户对每个Activity使用情况，我们可以定义一个BaseActivity，
-         在onStart()和onStop()人工插入统计方法。比如从桌面进应用的时候，检测某些状态，就可以在onActivityResumed方法里检测。
-         */
         registerActivityLifecycleCallbacks(new MActivityLifecycleCallbacks());
     }
 
 
-    protected void protectApp() {//重启应用
+    protected void protectApp() {
         new Thread() {
             @Override
             public void run() {
@@ -106,15 +99,8 @@ public class MyApplication extends Application {
         return appCount;
     }
 
-    /**
-     * ActivityLifecycleCallbacks是什么？
-     * Application通过此接口提供了一套回调方法，用于让开发者对Activity的生命周期事件进行集中处理。
-     * 为什么用ActivityLifecycleCallbacks？
-     * 以往若需监测Activity的生命周期事件代码，你可能是这样做的，重写每一个Acivity的onResume()，然后作统计和处理：
-     * ActivityLifecycleCallbacks接口回调可以简化这一繁琐过程，在一个类中作统一处理
-     */
     private class MActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbacks {
-    //统计用户对每个Activity使用情况
+
         @Override
         public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
 

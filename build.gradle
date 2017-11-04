@@ -17,9 +17,7 @@ allprojects {
         jcenter()
         maven {
             //配合这个库使用 com.github.gzu-liyujiang.AndroidPicker:WheelPicker:1.4.4
-            url "https://www.jitpack.io"//android 自定义日历控件 支持左右无限滑动 周月切换 标记日期显示 自定义显示效果跳转到指定日期
-                                       //压缩文件，压缩图片，压缩Bitmap，通过尺寸压缩和质量压缩，以达到清晰度最优
-                                      //应用自动静默更新安装库.
+            url "https://www.jitpack.io"
         }
         maven { url "https://raw.githubusercontent.com/Pgyer/mvn_repo_pgyer/master" }
     }

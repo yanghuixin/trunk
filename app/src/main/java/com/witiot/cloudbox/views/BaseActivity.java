@@ -122,9 +122,9 @@ public class BaseActivity extends FragmentActivity {
             }
         }
     }
-    public void dismissProgress(){//释放对话框所占的资源
+    public void dismissProgress(){
         if(progressDialog != null && progressDialog.isShowing()){
-            progressDialog.dismiss();//dismiss方法会释放对话框所占的资源，而hide方法不会
+            progressDialog.dismiss();
         }
     }
 

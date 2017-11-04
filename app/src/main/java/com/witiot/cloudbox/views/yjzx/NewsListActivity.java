@@ -274,9 +274,15 @@ public class NewsListActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ad_left:
+                if(adBeanList == null || adBeanList.size() ==0){
+                    return;
+                }
                 CommonUtils.intentChrome(NewsListActivity.this,adBeanList.get(0).getAdvertUrl());
                 break;
             case R.id.ad_right:
+                if(adBeanList == null || adBeanList.size() ==0){
+                    return;
+                }
                 CommonUtils.intentChrome(NewsListActivity.this,adBeanList.get(1).getAdvertUrl());
                 break;
         }
